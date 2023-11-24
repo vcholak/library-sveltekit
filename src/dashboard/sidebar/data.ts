@@ -6,6 +6,12 @@ import TerminalIcon from './icons/TerminalIcon.svelte';
 import RecycleBinIcon from './icons/RecycleBin.svelte';
 import DocumentationIcon from './icons/DocumentationIcon.svelte';
 
+const loginUrl = import.meta.env.VITE_AWS_LOGIN_URL;
+
+const signupUrl = import.meta.env.VITE_AWS_SIGNUP_URL
+
+const resetPasswordUrl = import.meta.env.VITE_AWS_RESET_PASSWORD_URL;
+
 export const data = [
 	{
 		section: 'ENTRIES',
@@ -43,17 +49,17 @@ export const data = [
 			{
 				title: 'Sign In',
 				icon: TerminalIcon,
-				link: '/admin/terminal'
+				link: loginUrl
 			},
 			{
 				title: 'Sign Up',
 				icon: RecycleBinIcon,
-				link: '/admin/recycle-bin'
+				link: signupUrl
 			},
 			{
 				title: 'Reset Password',
 				icon: ServersIcon,
-				link: '/admin/servers'
+				link: resetPasswordUrl
 			}
 		]
 	}
