@@ -1,5 +1,12 @@
 <script>
 	import { openSidebar } from './store';
+	import { page } from '$app/stores';
+
+	const session = $page.data.session;
+	const user = session?.user;
+	const userName = user?.name;
+	const userEmail = user?.email;
+	const userImage = user?.image;
 </script>
 
 <header class="bg-[#0e141b] h-20 items-center relative z-10">
@@ -55,9 +62,29 @@
 				</div>
 			</div>
 			<div class="flex items-center justify-end ml-5 p-1 relative w-1/4 sm:mr-0 sm:right-auto">
-				<span class="block relative">
-					<img alt="CR7" src="/images/1.png" class="h-10 mx-auto object-cover rounded-full w-10" />
-				</span>
+				{#if !session}
+					<a href="/login" class="w-full px-5 py-2 text-center text-white bg-blue-600 roundes shadow hover:bg-blue-500">Login</a>
+				{/if}
+
+				{#if session}
+					<span class="block relative">
+						{#if !userImage}
+							<!-- svelte-ignore a11y-img-redundant-alt -->
+							<img alt="generic user picture" src="/images/user-blue.png" class="h-10 mx-auto object-cover rounded-full w-10" />
+						{:else}
+							<!-- svelte-ignore a11y-img-redundant-alt -->
+							<img src={userImage} alt="user picture" class="h-10 mx-auto object-cover rounded-full w-10" />
+						{/if}
+					</span>
+					<span class="block relative text-white">
+						{#if !userEmail}
+							{userName}
+						{:else}
+							{userEmail}
+						{/if}
+					</span>
+					<a href="/logout" class="w-full px-5 py-2 text-center text-white bg-blue-600 roundes shadow hover:bg-blue-500">Logout</a>
+				{/if}
 			</div>
 		</div>
 	</div>

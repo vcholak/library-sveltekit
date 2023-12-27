@@ -1,5 +1,5 @@
 <script>
-	import { sidebarOpen } from '../store.ts';
+	import { sidebarOpen } from '../store'
 	import SidebarItems from './SidebarItems.svelte';
 	import SidebarHeader from './SidebarHeader.svelte';
 

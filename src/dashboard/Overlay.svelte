@@ -1,5 +1,5 @@
 <script>
-	import { closeSidebar, sidebarOpen } from './store.ts';
+	import { closeSidebar, sidebarOpen } from './store';
 </script>
 
 <!-- Overlay will only be visible on small screens to emphasize the focus on sidebar when it is open.-->
