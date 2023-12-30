@@ -21,6 +21,13 @@ export type BookType = {
   genreId: string
 }
 
+export type BookCopyType = {
+  id: number
+  book: {
+    title: string
+  }
+}
+
 export function getBookCopyStatuses() {
   return [
     "NotAvailable", // 0

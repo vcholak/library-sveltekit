@@ -15,7 +15,6 @@ export async function load() {
 export const actions = {
   default: async({ request }) => {
     const data = await request.formData();
-    console.log('form data=', data)
 
     const book: BookType = {
       title: data.get('title') as string,
