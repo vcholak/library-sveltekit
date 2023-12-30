@@ -1,12 +1,12 @@
 // This approach is taken from https://github.com/vercel/next.js/tree/canary/examples/with-mongodb
 import { MongoClient } from 'mongodb';
-import { NODE_ENV, MONGODB_URL } from '$env/static/private';
+import { NODE_ENV, DATABASE_URL } from '$env/static/private';
 
-if (!MONGODB_URL) {
+if (!DATABASE_URL) {
 	throw new Error('Invalid/Missing environment variable: MONGODB_URL');
 }
 
-const uri = MONGODB_URL;
+const uri = DATABASE_URL;
 const options = {};
 
 let client: MongoClient;

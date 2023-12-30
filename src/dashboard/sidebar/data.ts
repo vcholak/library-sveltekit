@@ -15,22 +15,22 @@ export const data = [
 			{
 				title: 'Authors',
 				icon: HomeIcon,
-				link: '/admin/medias'
+				link: '/admin/authors'
 			},
 			{
 				title: 'Genres',
 				icon: BarsIcon,
-				link: '/admin/contacts'
+				link: '/admin/genres'
 			},
 			{
 				title: 'Books',
 				icon: DocumentationIcon,
-				link: '/admin/contacts'
+				link: '/admin/books'
 			},
 			{
 				title: 'Book Copies',
 				icon: DocumentationIcon,
-				link: '/admin/contacts'
+				link: '/admin/copies'
 			}
 		]
 	}

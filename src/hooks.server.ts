@@ -22,7 +22,7 @@ import {
 import clientPromise from '$lib/database/clientPromise';
 
 export const handle = SvelteKitAuth({
-	debug: !(NODE_ENV === 'production'),
+	// debug: !(NODE_ENV === 'production'),
 
 	secret: AUTH_SECRET,
 
@@ -51,8 +51,6 @@ export const handle = SvelteKitAuth({
 
 	callbacks: {
 		async session({ session, user }) {
-			console.log('in session callback session=', session)
-			console.log('in session callback user=', user)
 			return session;
 		}
 	},
