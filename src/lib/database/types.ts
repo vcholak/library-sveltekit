@@ -1,9 +1,9 @@
 export type AuthorType = {
-  id: number
+  id: number|null
   firstName: string
   familyName: string
   birthDate: Date
-  deathDate: Date
+  deathDate: Date|null
   lifeSpan: string
 }
 
