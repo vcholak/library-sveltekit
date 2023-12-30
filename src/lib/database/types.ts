@@ -1,10 +1,24 @@
+export type GenreType = {
+  id?: number
+  title: string
+}
+
 export type AuthorType = {
-  id: number|null
+  id?: number
   firstName: string
   familyName: string
   birthDate: Date
-  deathDate: Date|null
+  deathDate?: Date
   lifeSpan: string
+}
+
+export type BookType = {
+  id?: number
+  title: string
+  summary: string
+  isbn: string
+  authorId: string
+  genreId: string
 }
 
 export function getBookCopyStatuses() {

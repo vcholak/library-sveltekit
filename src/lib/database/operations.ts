@@ -1,9 +1,5 @@
-import { config } from 'dotenv';
-import { PrismaClient } from '@prisma/client';
-import type { AuthorType } from './types';
-
-config({ path: '.env.development' });
-const prisma = new PrismaClient();
+import prisma from "./prisma";
+import type { AuthorType } from "./types";
 
 // Genre operations
 
@@ -35,6 +31,25 @@ export async function createAuthor(payload: AuthorType) {
       birthDate: payload.birthDate,
       deathDate: payload.deathDate,
       lifeSpan: payload.lifeSpan
+    }
+  });
+}
+
+// Book operations
+
+export async function allBooks() {
+  const books = await prisma.book.findMany();
+  return books;
+}
+
+export async function createBook(payload: BookType) {
+  await prisma.book.create({
+    data: {
+      title: payload.title,
+      summary: payload.summary,
+      isbn: payload.isbn,
+      authorId: payload.authorId,
+      genreId: payload.genreId,
     }
   });
 }
