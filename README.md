@@ -60,9 +60,6 @@ npm install prisma --save-dev
 ```bash
 npx prisma init --datasource-provider mongodb
 ```
-#### Set MongoDB connection URL in *.env.development*
-
-DATABASE_URL=mongodb://localhost:27017/library
 
 #### Update *schema.prisma*
 
@@ -103,4 +100,10 @@ To preview your production build locally:
 npm run preview
 ```
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Deploy to Vercel
+
+Add all the above environment variables exept NODE_ENV.
+
+Override build command as followind:
+
+prisma generate & vite build
