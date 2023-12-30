@@ -1,5 +1,5 @@
 import prisma from "./prisma";
-import type { AuthorType, BookType } from "./types";
+import type { AuthorType, BookType, BookCopyType } from "./types";
 
 // Genre operations
 
@@ -63,4 +63,15 @@ export async function allBookCopies() {
     }
   });
   return bookCopies;
+}
+
+export async function createBookCopy(payload: BookCopyType) {
+  await prisma.book.create({
+    data: {
+      bookId: payload.bookId,
+      imprint: payload.imprint,
+      status: payload.status,
+      dueDate: payload.dueDate
+    }
+  });
 }

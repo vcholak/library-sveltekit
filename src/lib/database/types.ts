@@ -22,8 +22,12 @@ export type BookType = {
 }
 
 export type BookCopyType = {
-  id: number
-  book: {
+  id?: number
+  bookId: string
+  imprint: string
+  status: number
+  dueDate?: Date
+  book?: {
     title: string
   }
 }
