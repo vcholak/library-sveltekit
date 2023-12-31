@@ -32,16 +32,6 @@
 			<div class="py-4">
 				<div class="max-w-full overflow-x-auto shadow rounded-lg">
 					<table class="w-full leading-normal">
-						<thead>
-							<tr>
-								<th
-									scope="col"
-									class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
-								>
-									Name
-								</th>
-							</tr>
-						</thead>
 						<tbody>
 							{#each data?.genres as genre}
 							<tr>
