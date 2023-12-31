@@ -1,10 +1,10 @@
 export type GenreType = {
-  id?: number
+  id?: string
   title: string
 }
 
 export type AuthorType = {
-  id?: number
+  id?: string
   firstName: string
   familyName: string
   birthDate: Date
@@ -13,7 +13,7 @@ export type AuthorType = {
 }
 
 export type BookType = {
-  id?: number
+  id?: string
   title: string
   summary: string
   isbn: string
@@ -22,11 +22,11 @@ export type BookType = {
 }
 
 export type BookCopyType = {
-  id?: number
+  id?: string
   bookId: string
   imprint: string
   status: number
-  dueDate?: Date
+  dueBack?: Date
   book?: {
     title: string
   }

@@ -1,5 +1,6 @@
 import * as db from '$lib/database/operations';
 import type { BookType } from '$lib/database/types';
+import { redirect } from '@sveltejs/kit';
 
 export async function load() {
   const authors = await db.allAuthors();
@@ -25,5 +26,8 @@ export const actions = {
     }
     
     db.createBook(book);
+
+    throw redirect(303, '/admin/books');
+    //TODO refresh the  page
   }
 }

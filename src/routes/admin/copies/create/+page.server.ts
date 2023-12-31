@@ -1,5 +1,6 @@
 import * as db from '$lib/database/operations';
 import type { BookCopyType } from '$lib/database/types';
+import { redirect } from '@sveltejs/kit';
 
 export async function load() {
   const books = await db.allBooks();
@@ -15,15 +16,18 @@ export const actions = {
     const data = await request.formData();
 
     const dueDateStr = data.get('dueDate') as string;
-    const dueDate = dueDateStr ? new Date(dueDateStr) : null;
+    const dueBack = dueDateStr ? new Date(dueDateStr) : undefined;
 
     const bookCopy: BookCopyType = {
       bookId: data.get('bookId') as string,
       imprint: data.get('imprint') as string,
       status: Number(data.get('status') as string),
-      dueDate
+      dueBack
     };
     
     db.createBookCopy(bookCopy);
+
+    throw redirect(303, '/admin/copies');
+    //TODO refresh the  page
   }
 }

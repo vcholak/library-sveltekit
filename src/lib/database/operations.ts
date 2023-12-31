@@ -66,12 +66,12 @@ export async function allBookCopies() {
 }
 
 export async function createBookCopy(payload: BookCopyType) {
-  await prisma.book.create({
+  await prisma.bookCopy.create({
     data: {
       bookId: payload.bookId,
       imprint: payload.imprint,
       status: payload.status,
-      dueDate: payload.dueDate
+      dueBack: payload.dueBack
     }
   });
 }
