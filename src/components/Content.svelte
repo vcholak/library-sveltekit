@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { HomeDataType } from '$lib/database/types';
+  export let data: HomeDataType;
 	export let title: string;
 </script>
 
@@ -51,7 +53,7 @@
 									<p class="text-gray-900 whitespace-no-wrap">Books</p>
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">TBD</p>
+									<p class="text-gray-900 whitespace-no-wrap">{data.books}</p>
 								</td>
 							</tr>
 							<tr>
@@ -59,7 +61,15 @@
 									<p class="text-gray-900 whitespace-no-wrap">Book Copies</p>
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">TBD</p>
+									<p class="text-gray-900 whitespace-no-wrap">{data.bookCopies}</p>
+								</td>
+							</tr>
+							<tr>
+								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+									<p class="text-gray-900 whitespace-no-wrap">Available Book Copies</p>
+								</td>
+								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+									<p class="text-gray-900 whitespace-no-wrap">{data.availableCopies}</p>
 								</td>
 							</tr>
 							<tr>
@@ -67,7 +77,7 @@
 									<p class="text-gray-900 whitespace-no-wrap">Authors</p>
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">TBD</p>
+									<p class="text-gray-900 whitespace-no-wrap">{data.authors}</p>
 								</td>
 							</tr>
 							<tr>
@@ -75,7 +85,7 @@
 									<p class="text-gray-900 whitespace-no-wrap">Genres</p>
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-									<p class="text-gray-900 whitespace-no-wrap">TBD</p>
+									<p class="text-gray-900 whitespace-no-wrap">{data.genres}</p>
 								</td>
 							</tr>
 						</tbody>

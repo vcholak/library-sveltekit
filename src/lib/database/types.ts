@@ -1,3 +1,14 @@
+import type { Session } from "@auth/core/types"
+
+export type HomeDataType = {
+  session?: Session | null
+  authors: number
+  genres: number
+  books: number
+  bookCopies: number
+  availableCopies: number
+}
+
 export type GenreType = {
   id?: string
   title: string

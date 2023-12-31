@@ -3,8 +3,14 @@ import type { AuthorType, BookType, BookCopyType } from "./types";
 
 // Genre operations
 
+export async function countGernes() {
+  const count = prisma.genre.count();
+  return count;
+}
+
 export async function allGenres() {
   const genres = await prisma.genre.findMany();
+  prisma.genre.count
   return genres;
 }
 
@@ -17,6 +23,11 @@ export async function createGenre(title: string) {
 }
 
 // Author operations
+
+export async function countAuthors() {
+  const count = prisma.author.count();
+  return count;
+}
 
 export async function allAuthors() {
   const authors = await prisma.author.findMany();
@@ -37,6 +48,11 @@ export async function createAuthor(payload: AuthorType) {
 
 // Book operations
 
+export async function countBooks() {
+  const count = prisma.book.count();
+  return count;
+}
+
 export async function allBooks() {
   const books = await prisma.book.findMany();
   return books;
@@ -55,6 +71,22 @@ export async function createBook(payload: BookType) {
 }
 
 // BookCopy operations
+
+export async function countBookCopies() {
+  const count = prisma.bookCopy.count();
+  return count;
+}
+
+export async function countAvailableBookCopies() {
+  const count = prisma.bookCopy.count({
+    where: {
+      NOT : {
+        dueBack: null
+      }
+    }
+  });
+  return count;
+}
 
 export async function allBookCopies() {
   const bookCopies = await prisma.bookCopy.findMany({
