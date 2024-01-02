@@ -10,7 +10,14 @@ export async function countGernes() {
 
 export async function allGenres() {
   const genres = await prisma.genre.findMany();
-  prisma.genre.count
+  return genres;
+}
+
+export async function getGenres(skip: number, take: number) {
+  const genres = await prisma.genre.findMany({
+    skip: skip,
+    take: take
+  });
   return genres;
 }
 
@@ -31,6 +38,14 @@ export async function countAuthors() {
 
 export async function allAuthors() {
   const authors = await prisma.author.findMany();
+  return authors;
+}
+
+export async function getAuthors(skip: number, take: number) {
+  const authors = await prisma.author.findMany({
+    skip: skip,
+    take: take
+  });
   return authors;
 }
 
@@ -55,6 +70,14 @@ export async function countBooks() {
 
 export async function allBooks() {
   const books = await prisma.book.findMany();
+  return books;
+}
+
+export async function getBooks(skip: number, take: number) {
+  const books = await prisma.book.findMany({
+    skip: skip,
+    take: take
+  });
   return books;
 }
 
@@ -90,6 +113,17 @@ export async function countAvailableBookCopies() {
 
 export async function allBookCopies() {
   const bookCopies = await prisma.bookCopy.findMany({
+    include: {
+      book: true
+    }
+  });
+  return bookCopies;
+}
+
+export async function getBookCopies(skip: number, take: number) {
+  const bookCopies = await prisma.bookCopy.findMany({
+    skip: skip,
+    take: take,
     include: {
       book: true
     }

@@ -8,4 +8,4 @@
   <title>Library</title>
 </svelte:head>
 
-<Content title="Home" {data}/>
+<Content title="Inventory" {data}/>

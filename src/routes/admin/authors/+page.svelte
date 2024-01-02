@@ -1,5 +1,7 @@
 <script lang="ts">
+	import Pagination from '../../../components/Pagination.svelte';
 	export let data;
+	let authors;
 </script>
 
 <div>
@@ -32,8 +34,8 @@
 			<div class="py-4">
 				<div class="max-w-full overflow-x-auto shadow rounded-lg">
 					<table class="w-full leading-normal">
-						<tbody>
-							{#each data?.authors as author}
+					{#if authors}
+						{#each authors as author}
 							<tr>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									<p class="text-gray-900 whitespace-no-wrap">
@@ -43,9 +45,10 @@
 									</p>
 								</td>
 							</tr>
-							{/each}
-						</tbody>
+						{/each}
+					{/if}
 					</table>
+					<Pagination items={data.authors} bind:trimmedItems={authors}/>
 				</div>
 			</div>
 		</div>

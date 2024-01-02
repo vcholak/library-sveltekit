@@ -1,9 +1,11 @@
 import * as db from '$lib/database/operations';
 
 export async function load() {
-  const genres = await db.allGenres();
+  const total = await db.countGernes();
+  const genres = await db.getGenres(0, 10);
 
   return {
+    total,
     genres
   }
 }

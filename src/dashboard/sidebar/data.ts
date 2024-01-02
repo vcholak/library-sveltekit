@@ -1,35 +1,36 @@
-import HomeIcon from './icons/HomeIcon.svelte';
-import MediasIcon from './icons/MediasIcon.svelte';
-import DocumentationIcon from './icons/DocumentationIcon.svelte';
-import BarsIcon from './icons/BarsIcon.svelte';
+import AuthorsIcon from './icons/AuthorsIcon.svelte';
+import InventoryIcon from './icons/InventoryIcon.svelte';
+import BookCopyIcon from './icons/BookCopyIcon.svelte';
+import GenresIcon from './icons/GenresIcon.svelte';
+import BookIcon from './icons/BookIcon.svelte';
 
 export const data = [
 	{
-		section: 'ENTRIES',
+		section: 'ITEMS',
 		content: [
 			{
-				title: 'Dashboard',
-				icon: MediasIcon,
+				title: 'Inventory',
+				icon: InventoryIcon,
 				link: '/'
 			},
 			{
 				title: 'Authors',
-				icon: HomeIcon,
+				icon: AuthorsIcon,
 				link: '/admin/authors'
 			},
 			{
 				title: 'Genres',
-				icon: BarsIcon,
+				icon: GenresIcon,
 				link: '/admin/genres'
 			},
 			{
 				title: 'Books',
-				icon: DocumentationIcon,
+				icon: BookIcon,
 				link: '/admin/books'
 			},
 			{
 				title: 'Book Copies',
-				icon: DocumentationIcon,
+				icon: BookCopyIcon,
 				link: '/admin/copies'
 			}
 		]

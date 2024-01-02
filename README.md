@@ -106,4 +106,6 @@ Add all the above environment variables exept NODE_ENV.
 
 Override build command as followind:
 
+```bash
 prisma generate & vite build
+```

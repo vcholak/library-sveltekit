@@ -5,7 +5,6 @@ import { redirect } from '@sveltejs/kit';
 export const actions = {
   default: async({ request }) => {
     const data = await request.formData();
-    console.log('form data=', data)
     const deathDateStr = data.get('deathDate') as string;
     const deathDate = deathDateStr ? new Date(deathDateStr) : undefined;
 

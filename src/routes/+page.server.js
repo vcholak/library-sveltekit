@@ -9,7 +9,6 @@ export const load = async (event) => {
 	const bookCopies = await db.countBookCopies();
 	const availableCopies = await db.countAvailableBookCopies();
 
-
 	return {
 		session,
 		authors,

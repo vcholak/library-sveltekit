@@ -6,6 +6,7 @@
 	import TopBar from './TopBar.svelte';
 	import Overlay from './Overlay.svelte';
 	import Sidebar from './sidebar/Sidebar.svelte';
+	import Footer from './Footer.svelte';
 	import { closeSidebar, sidebarOpen } from './store';
 
 	/*	lg:w-[calc(100%-16rem)] class get the remained width of the main tag from lg:viewport by subtracting
@@ -36,6 +37,7 @@
 			<main class={style.main}>
 				<slot />
 			</main>
+			<Footer />
 		</div>
 	</div>
 </div>

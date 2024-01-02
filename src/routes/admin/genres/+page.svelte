@@ -1,5 +1,8 @@
 <script lang="ts">
+	import Pagination from '../../../components/Pagination.svelte';
+
 	export let data;
+	let genres;
 </script>
 
 <div>
@@ -32,8 +35,8 @@
 			<div class="py-4">
 				<div class="max-w-full overflow-x-auto shadow rounded-lg">
 					<table class="w-full leading-normal">
-						<tbody>
-							{#each data?.genres as genre}
+					{#if genres}
+						{#each genres as genre}
 							<tr>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									<p class="text-gray-900 whitespace-no-wrap">
@@ -43,9 +46,10 @@
 									</p>
 								</td>
 							</tr>
-							{/each}
-						</tbody>
+						{/each}
+					{/if}
 					</table>
+					<Pagination items={data.genres} bind:trimmedItems={genres} />
 				</div>
 			</div>
 		</div>
