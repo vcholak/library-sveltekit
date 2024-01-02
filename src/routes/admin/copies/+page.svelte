@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { BookCopyType } from '$lib/database/types';
 	import Pagination from '../../../components/Pagination.svelte';
 
 	export let data;
-	let bookCopies;
+	let bookCopies: BookCopyType[];
 </script>
 
 <div>

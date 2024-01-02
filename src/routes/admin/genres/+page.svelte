@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { GenreType } from '$lib/database/types';
 	import Pagination from '../../../components/Pagination.svelte';
 
 	export let data;
-	let genres;
+	let genres: GenreType[];
 </script>
 
 <div>

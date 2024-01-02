@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { AuthorType } from '$lib/database/types';
 	import Pagination from '../../../components/Pagination.svelte';
 	export let data;
-	let authors;
+	let authors: AuthorType[];
 </script>
 
 <div>

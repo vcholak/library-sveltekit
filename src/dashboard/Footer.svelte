@@ -3,5 +3,4 @@
     <img src='/images/c-circle.svg' alt='copyright' />
     <span class="ml-2">Ruthenia IT Consulting</span>
   </div>
-
 </footer>

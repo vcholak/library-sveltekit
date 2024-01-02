@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { BookType } from '$lib/database/types';
 	import Pagination from '../../../components/Pagination.svelte';
 
 	export let data;
-	let books;
+	let books: BookType[];
 </script>
 
 <div>

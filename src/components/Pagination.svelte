@@ -1,21 +1,14 @@
-<script>
-  // @ts-ignore
-  export let items; // all items
+<script lang="ts">
+  export let items: {}[];  // all items
   export let trimmedItems; // items on the current page
-  const perPage = 10; // items per page
+  const perPage = 10;      // items per page
 
   $: totalRows = items.length;
   $: currentPage = 0;
   $: totalPages = Math.ceil(totalRows / perPage);
   $: start =  currentPage * perPage;
   $: end = currentPage === totalPages - 1 ? totalRows - 1 : start + perPage - 1;
-  // @ts-ignore
   $: trimmedItems = items.slice(start, end + 1);
-
-  // @ts-ignore
-  $: totalRows, currentPage = 0;
-  // @ts-ignore
-  $: currentPage, start, end;
 
   let active = 'first'; // active button
 
