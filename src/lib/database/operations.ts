@@ -38,6 +38,15 @@ export async function createGenre(title: string) {
   });
 }
 
+export async function updateGenre(id: string, title: string) {
+  await prisma.genre.update({
+    where: { id },
+    data: {
+      title
+    }
+  });
+}
+
 // Author operations
 
 export async function countAuthors() {
@@ -136,6 +145,19 @@ export async function createBook(payload: BookType) {
   });
 }
 
+export async function updateBook(id: string, payload: BookType) {
+  await prisma.book.update({
+    where: { id },
+    data: {
+      title: payload.title,
+      summary: payload.summary,
+      isbn: payload.isbn,
+      authorId: payload.authorId,
+      genreId: payload.genreId,
+    }
+  });
+}
+
 // BookCopy operations
 
 export async function countBookCopies() {
@@ -192,6 +214,18 @@ export async function getBookCopies(skip: number, take: number) {
 
 export async function createBookCopy(payload: BookCopyType) {
   await prisma.bookCopy.create({
+    data: {
+      bookId: payload.bookId,
+      imprint: payload.imprint,
+      status: payload.status,
+      dueBack: payload.dueBack
+    }
+  });
+}
+
+export async function updateBookCopy(id: string, payload: BookCopyType) {
+  await prisma.bookCopy.update({
+    where: { id },
     data: {
       bookId: payload.bookId,
       imprint: payload.imprint,

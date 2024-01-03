@@ -2,7 +2,7 @@ import * as db from '$lib/database/operations';
 import type { AuthorType } from '$lib/database/types';
 import { redirect } from '@sveltejs/kit';
 
-export async function load({params}) {
+export async function load({ params }) {
 
   const id = params.id;
   const author = await db.getAuthor(id);

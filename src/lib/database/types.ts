@@ -19,7 +19,7 @@ export type AuthorType = {
   firstName: string
   familyName: string
   birthDate: Date
-  deathDate?: Date
+  deathDate?: Date | null
   lifeSpan: string
 }
 
@@ -37,7 +37,7 @@ export type BookCopyType = {
   bookId: string
   imprint: string
   status: number
-  dueBack?: Date
+  dueBack?: Date | null
   book?: {
     title: string
   }
