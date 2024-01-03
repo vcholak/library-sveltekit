@@ -41,8 +41,8 @@
 							<tr>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									<p class="text-gray-900 whitespace-no-wrap">
-										<a href={`/admin/books/${bookCopy.id}`} class="hover:text-blue-500">
-											<span>{bookCopy.book.title}</span>
+										<a href={`/admin/copies/${bookCopy.id}`} class="hover:text-blue-500">
+											<span>{bookCopy.book?.title}</span>
 										</a>
 									</p>
 								</td>

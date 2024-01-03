@@ -16,7 +16,7 @@ export async function allGenres() {
 export async function getGenre(id: string) {
   const genre = await prisma.genre.findUnique({
     where: {
-      id: id
+      id
     }
   })
   return genre;
@@ -24,8 +24,8 @@ export async function getGenre(id: string) {
 
 export async function getGenres(skip: number, take: number) {
   const genres = await prisma.genre.findMany({
-    skip: skip,
-    take: take
+    skip,
+    take
   });
   return genres;
 }
@@ -33,7 +33,7 @@ export async function getGenres(skip: number, take: number) {
 export async function createGenre(title: string) {
   await prisma.genre.create({
     data: {
-      title: title
+      title
     }
   });
 }
@@ -53,7 +53,7 @@ export async function allAuthors() {
 export async function getAuthor(id: string) {
   const author = await prisma.author.findUnique({
     where: {
-      id: id
+      id
     }
   })
   return author;
@@ -61,8 +61,8 @@ export async function getAuthor(id: string) {
 
 export async function getAuthors(skip: number, take: number) {
   const authors = await prisma.author.findMany({
-    skip: skip,
-    take: take
+    skip,
+    take
   });
   return authors;
 }
@@ -94,7 +94,10 @@ export async function allBooks() {
 export async function getBook(id: string) {
   const book = await prisma.book.findUnique({
     where: {
-      id: id
+      id
+    },
+    include: {
+      author: true
     }
   })
   return book;
@@ -102,8 +105,8 @@ export async function getBook(id: string) {
 
 export async function getBooks(skip: number, take: number) {
   const books = await prisma.book.findMany({
-    skip: skip,
-    take: take
+    skip,
+    take
   });
   return books;
 }
@@ -150,7 +153,14 @@ export async function allBookCopies() {
 export async function getBookCopy(id: string) {
   const bookCopy = await prisma.bookCopy.findUnique({
     where: {
-      id: id
+      id
+    },
+    include: {
+      book: {
+        include: {
+          author: true
+        }
+      }
     }
   })
   return bookCopy;
@@ -158,8 +168,8 @@ export async function getBookCopy(id: string) {
 
 export async function getBookCopies(skip: number, take: number) {
   const bookCopies = await prisma.bookCopy.findMany({
-    skip: skip,
-    take: take,
+    skip,
+    take,
     include: {
       book: true
     }
