@@ -79,6 +79,19 @@ export async function createAuthor(payload: AuthorType) {
   });
 }
 
+export async function updateAuthor(id: string, payload: AuthorType) {
+  await prisma.author.update({
+    where: { id },
+    data: {
+      firstName: payload.firstName,
+      familyName: payload.familyName,
+      birthDate: payload.birthDate,
+      deathDate: payload.deathDate,
+      lifeSpan: payload.lifeSpan
+    }
+  });
+}
+
 // Book operations
 
 export async function countBooks() {

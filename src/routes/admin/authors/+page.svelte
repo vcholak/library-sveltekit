@@ -39,8 +39,9 @@
 						<tr>
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 								<p class="text-gray-900 whitespace-no-wrap">
-									<a href={`/admin/authors/${author.id}`} class="hover:text-blue-500">
-										<span>{author.firstName} {author.familyName}</span>
+									<a href="/admin/authors/{author.id}" class="hover:text-blue-500">
+										<span>{author.firstName}</span>
+										<span class="ml-1">{author.familyName}</span>
 									</a>
 								</p>
 							</td>
