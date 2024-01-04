@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { AuthorType } from '$lib/database/types';
   export let authors: AuthorType[];
-  export let selectedId: string;
+  export let selectedId: string = '';
 </script>
 
 <div>

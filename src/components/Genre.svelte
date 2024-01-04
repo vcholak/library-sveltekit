@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { GenreType } from '$lib/database/types';
   export let genres: GenreType[];
-  export let selectedId: string;
+  export let selectedId: string = '';
 </script>
 
 <div>

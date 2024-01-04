@@ -13,7 +13,7 @@
 		<div class="flex flex-wrap flex-row mb-1 sm:mb-0 justify-between w-full">
 			<h2 class="text-2xl leading-tight md:pr-0 text-white">Book Copy Details</h2>
 			<div>
-				<a href="/admin/copies/[id]/edit" class="px-4 py-2 text-base font-semibold rounded-lg bg-gray-600 text-white hover:bg-purple-700">Edit</a>
+				<a href="/admin/copies/{bookCopy.id}/edit" class="px-4 py-2 text-base font-semibold rounded-lg bg-gray-600 text-white hover:bg-purple-700">Edit</a>
 			</div>
 		</div>
 		<div class="py-4">
