@@ -21,6 +21,7 @@ export const actions = {
       id: '',
       bookId: data.get('bookId') as string,
       imprint: data.get('imprint') as string,
+      isbn: data.get('isbn') as string,
       status: Number(data.get('status') as string),
       dueBack: dueBackVal
     };

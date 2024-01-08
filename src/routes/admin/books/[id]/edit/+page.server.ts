@@ -1,5 +1,5 @@
 import * as db from '$lib/database/operations';
-import type { BookType } from '$lib/database/types';
+import type { Book } from '@prisma/client'
 import { redirect } from '@sveltejs/kit';
 
 export async function load({ params }) {
@@ -20,10 +20,10 @@ export const actions = {
     const id = params.id;
     const data = await request.formData();
 
-    const book: BookType = {
+    const book: Book = {
+      id: '',
       title: data.get('title') as string,
       summary: data.get('summary') as string,
-      isbn: data.get('isbn') as string,
       authorId: data.get('authorId') as string,
       genreId: data.get('genreId') as string
     }

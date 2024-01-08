@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { AuthorType } from '$lib/database/types';
+	import type { Author } from '@prisma/client'
 	import Pagination from '../../../components/Pagination.svelte';
 	export let data;
-	let authors: AuthorType[];
+	let authors: Author[];
 </script>
 
 <div class="container mx-auto">
@@ -41,7 +41,7 @@
 								<p class="text-gray-900 whitespace-no-wrap">
 									<a href="/admin/authors/{author.id}" class="hover:text-blue-500">
 										<span>{author.firstName}</span>
-										<span class="ml-1">{author.familyName}</span>
+										<span>{author.familyName}</span>
 									</a>
 								</p>
 							</td>

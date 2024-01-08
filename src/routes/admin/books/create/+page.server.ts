@@ -21,7 +21,6 @@ export const actions = {
       id: '',
       title: data.get('title') as string,
       summary: data.get('summary') as string,
-      isbn: data.get('isbn') as string,
       authorId: data.get('authorId') as string,
       genreId: data.get('genreId') as string
     }

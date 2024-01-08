@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { BookType } from '$lib/database/types';
+	import type { Book } from '@prisma/client';
 	import Pagination from '../../../components/Pagination.svelte';
 
 	export let data;
-	let books: BookType[];
+	let books: Book[];
 </script>
 
 <div>
@@ -41,7 +41,7 @@
 							<tr>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									<p class="text-gray-900 whitespace-no-wrap">
-										<a href={`/admin/books/${book.id}`} class="hover:text-blue-500">
+										<a href='/admin/books/{book.id}' class="hover:text-blue-500">
 											<span>{book.title}</span>
 										</a>
 									</p>

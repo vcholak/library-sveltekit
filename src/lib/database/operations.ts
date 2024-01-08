@@ -138,7 +138,6 @@ export async function createBook(payload: Book) {
     data: {
       title: payload.title,
       summary: payload.summary,
-      isbn: payload.isbn,
       authorId: payload.authorId,
       genreId: payload.genreId,
     }
@@ -151,7 +150,6 @@ export async function updateBook(id: string, payload: Book) {
     data: {
       title: payload.title,
       summary: payload.summary,
-      isbn: payload.isbn,
       authorId: payload.authorId,
       genreId: payload.genreId,
     }
@@ -218,6 +216,7 @@ export async function createBookCopy(payload: BookCopy) {
     data: {
       bookId: payload.bookId,
       imprint: payload.imprint,
+      isbn: payload.isbn,
       status: payload.status,
       dueBack: payload.dueBack
     }
@@ -231,6 +230,7 @@ export async function updateBookCopy(id: string, payload: BookCopy) {
     data: {
       bookId: payload.bookId,
       imprint: payload.imprint,
+      isbn: payload.isbn,
       status: payload.status,
       dueBack: payload.dueBack
     }

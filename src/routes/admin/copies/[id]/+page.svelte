@@ -52,7 +52,7 @@
               ISBN:
             </td>
             <td class="px-5 py-5 border-b border-gray-200">
-              <span class='text-red-600'>TBD</span>
+              {bookCopy.isbn}
             </td>
           </tr>
           <tr>

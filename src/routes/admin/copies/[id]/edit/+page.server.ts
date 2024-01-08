@@ -1,12 +1,10 @@
 import * as db from '$lib/database/operations';
-import type { BookCopyType } from '$lib/database/types';
+import type { BookCopy } from '@prisma/client'
 import { redirect } from '@sveltejs/kit';
-import { DateTime } from 'luxon';
 
 export async function load({ params }) {
   const id = params.id;
   const bookCopy = await db.getBookCopy(id);
-  console.log('in load: bookCopy=', bookCopy)
   const books = await db.allBooks();
 
   return {
@@ -21,15 +19,16 @@ export const actions = {
     const data = await request.formData();
 
     const dueDateStr = data.get('dueBack') as string;
-    const dueBackVal = dueDateStr ? DateTime.fromISO(dueDateStr) : null;
+    const dueBackVal = dueDateStr ? new Date(dueDateStr) : null;
 
-    const bookCopy: BookCopyType = {
+    const bookCopy: BookCopy = {
+      id: '',
       bookId: data.get('bookId') as string,
       imprint: data.get('imprint') as string,
+      isbn: data.get('isbn') as string,
       status: Number(data.get('status') as string),
       dueBack: dueBackVal
     };
-    console.log('bookCopy', bookCopy)
     
     db.updateBookCopy(id, bookCopy);
 

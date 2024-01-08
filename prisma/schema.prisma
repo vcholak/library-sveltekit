@@ -24,7 +24,6 @@ model Book {
   id       String       @id @default(auto()) @map("_id") @db.ObjectId
   title    String
   summary  String
-  isbn     String
   author   Author       @relation(fields: [authorId], references: [id])
   authorId String       @db.ObjectId
   genre    Genre        @relation(fields: [genreId], references: [id])
@@ -43,6 +42,7 @@ model BookCopy {
   book     Book       @relation(fields: [bookId], references: [id])
   bookId   String     @db.ObjectId
   imprint  String
+  isbn     String
   status   Int
   dueBack  DateTime?
 }
