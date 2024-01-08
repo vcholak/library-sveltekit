@@ -1,7 +1,10 @@
 <script lang='ts'>
-	import FormattedDate from '../../../../components/FormattedDate.svelte';
+	import { DateTime } from 'luxon';
   export let data;
   $: author = data.author;
+  $: fullName = author?.firstName + ' ' + author?.familyName;
+  $: birthDate = author ? DateTime.fromJSDate(author.birthDate, {zone: 'utc'}).toLocaleString(DateTime.DATE_FULL) : null;
+  $: deathDate = author?.deathDate ? DateTime.fromJSDate(author.deathDate, {zone: 'utc'}).toLocaleString(DateTime.DATE_FULL) : null;
 </script>
 
 <div class="container mx-auto">
@@ -18,13 +21,13 @@
           <div class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
             <p class="mb-2">
               <span class="underline">
-                {author.firstName} {author.familyName}
+                {fullName}
               </span>
               <span> ( </span>
-              <FormattedDate date={author.birthDate} />
+              {birthDate}
               <span> - </span>
-              {#if author.deathDate}
-                <FormattedDate date={author.deathDate} />
+              {#if deathDate}
+                {deathDate}
               {:else}
                 Alive
               {/if}

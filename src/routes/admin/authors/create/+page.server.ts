@@ -1,18 +1,19 @@
 import * as db from '$lib/database/operations';
-import type { AuthorType } from '$lib/database/types';
+import type { Author } from '@prisma/client';
 import { redirect } from '@sveltejs/kit';
 
 export const actions = {
   default: async({ request }) => {
     const data = await request.formData();
     const deathDateStr = data.get('deathDate') as string;
-    const deathDate = deathDateStr ? new Date(deathDateStr) : undefined;
+    const deathDateVal = deathDateStr ? new Date(deathDateStr) : null;
 
-    const author: AuthorType = {
+    const author: Author = {
+      id: '',
       firstName: data.get('firstName') as string,
       familyName: data.get('familyName') as string,
       birthDate: new Date(data.get('birthDate') as string),
-      deathDate,
+      deathDate: deathDateVal,
       lifeSpan: data.get('lifeSpan') as string,
     }
     

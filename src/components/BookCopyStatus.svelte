@@ -7,9 +7,9 @@
 <div>
 <label class='sm:text-end'>Status:
   <select name='status' required bind:value={selectedId}>
-    <option>----- select -----</option>
+    <option value={0}>----- select -----</option>
     {#each statuses as status, index}
-      <option value={index}>
+      <option value={index + 1}>
         {status}
       </option>
     {/each}

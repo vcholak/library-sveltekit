@@ -1,11 +1,15 @@
 <script>
+	import { DateTime } from "luxon";
 	import Book from "../../../../../components/Book.svelte";
 	import BookCopyStatus from "../../../../../components/BookCopyStatus.svelte";
 	export let data;
 	$: books = data.books;
 	$: bookCopy = data.bookCopy;
-	$: book = bookCopy.book;
+	$: dueBack = bookCopy?.dueBack ? DateTime.fromJSDate(bookCopy.dueBack, {zone: 'utc'}).toISODate() : '';
+	$: book = bookCopy?.book;
 </script>
+
+{#if bookCopy && book}
 <div>
 	<div class="container mx-auto">
 		<div class="py-8">
@@ -25,7 +29,7 @@
 						<div>
 							<input
 								type="date"
-                name='dueBack' bind:value={bookCopy.dueBack}
+                name='dueBack' bind:value={dueBack}
 								class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
 							/>
 						</div>
@@ -41,3 +45,4 @@
 		</div>
 	</div>
 </div>
+{/if}

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import type { GenreType } from '$lib/database/types';
-  export let genres: GenreType[];
+  import type { Genre } from '@prisma/client';
+  export let genres: Genre[];
   export let selectedId: string = '';
 </script>
 
 <div>
-<label class='sm:text-end'>Author:
+<label class='sm:text-end'>Genre:
   <select name='genreId' required bind:value={selectedId}>
-    <option>----- select -----</option>
+    <option value=''>----- select -----</option>
     {#each genres as genre}
       <option value={genre.id}>
         {genre.title}

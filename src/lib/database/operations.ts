@@ -1,5 +1,5 @@
 import prisma from "./prisma";
-import type { AuthorType, BookType, BookCopyType } from "./types";
+import type { Author, Book, BookCopy } from '@prisma/client';
 
 // Genre operations
 
@@ -76,7 +76,7 @@ export async function getAuthors(skip: number, take: number) {
   return authors;
 }
 
-export async function createAuthor(payload: AuthorType) {
+export async function createAuthor(payload: Author) {
   await prisma.author.create({
     data: {
       firstName: payload.firstName,
@@ -88,7 +88,7 @@ export async function createAuthor(payload: AuthorType) {
   });
 }
 
-export async function updateAuthor(id: string, payload: AuthorType) {
+export async function updateAuthor(id: string, payload: Author) {
   await prisma.author.update({
     where: { id },
     data: {
@@ -133,7 +133,7 @@ export async function getBooks(skip: number, take: number) {
   return books;
 }
 
-export async function createBook(payload: BookType) {
+export async function createBook(payload: Book) {
   await prisma.book.create({
     data: {
       title: payload.title,
@@ -145,7 +145,7 @@ export async function createBook(payload: BookType) {
   });
 }
 
-export async function updateBook(id: string, payload: BookType) {
+export async function updateBook(id: string, payload: Book) {
   await prisma.book.update({
     where: { id },
     data: {
@@ -212,7 +212,8 @@ export async function getBookCopies(skip: number, take: number) {
   return bookCopies;
 }
 
-export async function createBookCopy(payload: BookCopyType) {
+export async function createBookCopy(payload: BookCopy) {
+
   await prisma.bookCopy.create({
     data: {
       bookId: payload.bookId,
@@ -223,7 +224,8 @@ export async function createBookCopy(payload: BookCopyType) {
   });
 }
 
-export async function updateBookCopy(id: string, payload: BookCopyType) {
+export async function updateBookCopy(id: string, payload: BookCopy) {
+  
   await prisma.bookCopy.update({
     where: { id },
     data: {

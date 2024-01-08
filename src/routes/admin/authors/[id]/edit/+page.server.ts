@@ -1,6 +1,7 @@
 import * as db from '$lib/database/operations';
 import type { AuthorType } from '$lib/database/types';
 import { redirect } from '@sveltejs/kit';
+import { DateTime } from 'luxon';
 
 export async function load({ params }) {
 
@@ -17,13 +18,13 @@ export const actions = {
     const id = params.id;
     const data = await request.formData();
     const deathDateStr = data.get('deathDate') as string;
-    const deathDate = deathDateStr ? new Date(deathDateStr) : undefined;
+    const deathDateVal = deathDateStr ? DateTime.fromISO(deathDateStr) : null;
 
     const author: AuthorType = {
       firstName: data.get('firstName') as string,
       familyName: data.get('familyName') as string,
-      birthDate: new Date(data.get('birthDate') as string),
-      deathDate,
+      birthDate: DateTime.fromISO(data.get('birthDate') as string),
+      deathDate: deathDateVal,
       lifeSpan: data.get('lifeSpan') as string,
     }
     
