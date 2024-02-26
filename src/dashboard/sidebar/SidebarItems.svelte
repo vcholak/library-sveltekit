@@ -1,5 +1,5 @@
 <script>
-	import { data } from './data';
+	import { menuItems } from './menuItems';
 	import { page } from '$app/stores';
 
 	const style = {
@@ -12,7 +12,7 @@
 
 <ul class="md:pl-6">
 	<li>
-		{#each data as { section, content } (section)}
+		{#each menuItems as { section, content } (section)}
 			<div class="mb-12">
 				<div class={style.section}>{section}</div>
 

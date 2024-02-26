@@ -1,6 +1,10 @@
 # Library app
 
-This is an example of how to use Auth.js in SvelteKit for OAuth (Google, GitHub) and Magic Link authentication.
+Full-stack app using SvelteKit.
+
+Authentication: Magic Link and OAuth (Google, GitHub) using Auth.js
+
+Database: MongoDB via Prisma ORM
 
 ## Creating a project
 

@@ -4,7 +4,7 @@ import BookCopyIcon from './icons/BookCopyIcon.svelte';
 import GenresIcon from './icons/GenresIcon.svelte';
 import BookIcon from './icons/BookIcon.svelte';
 
-export const data = [
+export const menuItems = [
 	{
 		section: 'ITEMS',
 		content: [
